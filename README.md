@@ -25,16 +25,6 @@ Learnova solves this by providing instant AI-powered learning assistance.
 5. Personalized learning support
 6. User-friendly interface
 
-*Tech Stack
-
-Frontend: HTML / CSS / JavaScript / React
-
-Backend: Node.js / Python
-
-AI Integration: OpenAI API / Machine Learning Model
-
-Database: MongoDB / Firebase / MySQL
-
 * How It Works
 
 User enters a question or topic.
