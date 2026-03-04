@@ -10,9 +10,10 @@ Learnova acts like a 24/7 personal tutor
 *Problem Statement
 
 Students often:
-Struggle with difficult concepts
-Don’t have immediate doubt support
-Feel overloaded with lengthy study materials
+Struggle with difficult concepts,
+Don’t have immediate doubt support,
+Feel overloaded with lengthy study materials,
+
 Learnova solves this by providing instant AI-powered learning assistance.
 
 * Features
