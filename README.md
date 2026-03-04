@@ -22,9 +22,8 @@ Learnova solves this by providing instant AI-powered learning assistance.
 ✅ Practice question generation
 ✅ Personalized learning support
 ✅ User-friendly interface
-Tech Stack
 
-(Edit this section according to your project)
+Tech Stack
 
 Frontend: HTML / CSS / JavaScript / React
 
