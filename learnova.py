@@ -1,49 +1,117 @@
-from datetime import datetime, timedelta
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learnova - AI Learning Assistant</title>
 
-print("===================================")
-print("        LEARNOVA - AI STUDY PLANNER")
-print("===================================\n")
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-subjects = []
+        .container {
+            background: white;
+            width: 500px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+        }
 
-# Take number of subjects
-n = int(input("Enter number of subjects: "))
+        h1 {
+            margin-bottom: 15px;
+        }
 
-# Input subject details
-for i in range(n):
-    print(f"\nEnter details for Subject {i+1}")
-    name = input("Subject Name: ")
-    priority = int(input("Priority (1 = High, 2 = Medium, 3 = Low): "))
-    duration = int(input("Study Duration (in minutes): "))
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            resize: none;
+        }
 
-    subjects.append({
-        "name": name,
-        "priority": priority,
-        "duration": duration
-    })
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #4facfe;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
 
-# Sort subjects by priority (AI logic simulation)
-subjects.sort(key=lambda x: x["priority"])
+        button:hover {
+            background-color: #007bff;
+        }
 
-# Start time input
-start_time_input = input("\nEnter start time (HH:MM format, 24-hour): ")
-break_time = int(input("Enter break time between subjects (minutes): "))
+        .answer-box {
+            margin-top: 20px;
+            text-align: left;
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 8px;
+            min-height: 60px;
+        }
 
-# Convert start time
-current_time = datetime.strptime(start_time_input, "%H:%M")
+        .loading {
+            color: gray;
+            font-style: italic;
+        }
+    </style>
+</head>
 
-print("\n========== YOUR AI STUDY SCHEDULE ==========\n")
+<body>
 
-# Generate schedule
-for subject in subjects:
-    start = current_time
-    end = start + timedelta(minutes=subject["duration"])
+<div class="container">
+    <h1>🌟 Learnova</h1>
+    <p>Your AI Learning Assistant</p>
 
-    print(f"Subject: {subject['name']}")
-    print(f"Time: {start.strftime('%H:%M')} - {end.strftime('%H:%M')}")
-    print("----------------------------------")
+    <textarea id="question" placeholder="Ask your question here..."></textarea>
+    <br>
+    <button onclick="askQuestion()">Ask Learnova</button>
 
-    # Add break time
-    current_time = end + timedelta(minutes=break_time)
+    <div class="answer-box" id="answer">
+        Your answer will appear here...
+    </div>
+</div>
 
-print("\nStudy Plan Generated Successfully by Learnova AI 🚀")
+<script>
+    async function askQuestion() {
+        const question = document.getElementById("question").value;
+        const answerBox = document.getElementById("answer");
+
+        if (!question) {
+            alert("Please enter a question!");
+            return;
+        }
+
+        answerBox.innerHTML = "<span class='loading'>Thinking...</span>";
+
+        try {
+            const response = await fetch("http://localhost:5000/api/ask", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ question: question }),
+            });
+
+            const data = await response.json();
+            answerBox.innerHTML = data.answer;
+
+        } catch (error) {
+            answerBox.innerHTML = "Error connecting to server.";
+        }
+    }
+</script>
+
+</body>
+</html>
