@@ -1,4 +1,4 @@
-Overview
+*Overview
 Learnova is an AI-powered learning assistant designed to make studying smarter, faster, and more interactive.
 It helps students:
 Understand complex topics easily
@@ -6,7 +6,8 @@ Get instant doubt clarification
 Receive simplified explanations
 Practice with AI-generated questions
 Learnova acts like a 24/7 personal tutor
-Problem Statement
+
+*Problem Statement
 
 Students often:
 Struggle with difficult concepts
@@ -14,16 +15,16 @@ Don’t have immediate doubt support
 Feel overloaded with lengthy study materials
 Learnova solves this by providing instant AI-powered learning assistance.
 
-🚀 Features
+* Features
 
-✅ AI-based doubt solving
-✅ Easy-to-understand explanations
-✅ Topic summarization
-✅ Practice question generation
-✅ Personalized learning support
-✅ User-friendly interface
+1. AI-based doubt solving
+2. Easy-to-understand explanations
+3. Topic summarization
+4. Practice question generation
+5. Personalized learning support
+6. User-friendly interface
 
-Tech Stack
+*Tech Stack
 
 Frontend: HTML / CSS / JavaScript / React
 
@@ -33,7 +34,7 @@ AI Integration: OpenAI API / Machine Learning Model
 
 Database: MongoDB / Firebase / MySQL
 
-⚙️ How It Works
+* How It Works
 
 User enters a question or topic.
 
@@ -49,16 +50,16 @@ Practice questions
 
 User can ask follow-up questions for deeper understanding.
 
-🔮 Future Enhancements
+1. Future Enhancements
 
-🎙 Voice-based interaction
+2. Voice-based interaction
 
-🌍 Multi-language support
+3. Multi-language support
 
-📊 Student performance tracking
+4. Student performance tracking
 
-📱 Mobile app version
+5. Mobile app version
 
-📝 AI-based quiz & test generation
+6. AI-based quiz & test generation
 
 
