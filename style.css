@@ -1,21 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: linear-gradient(to right, #fdfbfb, #ebedee);
     text-align: center;
-    background-color: #f4f4f4;
+    color: #333;
 }
 
 header {
-    background: #333;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
     color: white;
-    padding: 15px;
+    padding: 30px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
-nav button {
-    margin: 10px;
-    padding: 10px 15px;
+header h1 {
+    margin: 0;
+    font-size: 3em;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+nav {
+    background: #2c2c54;
+    padding: 12px;
+}
+
+nav a {
+    color: #fff;
+    margin: 15px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: #ff6b81;
+}
+
+section {
+    padding: 50px 20px;
+}
+
+h2 {
+    color: #2575fc;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: linear-gradient(145deg, #ffecd2, #fcb69f);
+    padding: 25px;
+    width: 220px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+button {
+    padding: 12px 25px;
+    background: linear-gradient(45deg, #ff6b81, #ffb347);
+    color: white;
+    border: none;
+    border-radius: 50px;
     cursor: pointer;
 }
 
-.page {
-    margin-top: 20px;
+#quiz button {
+    margin-top: 10px;
+}
+
+.coming-soon {
+    background: #ffe3b3;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 12px;
+}
+
+textarea {
+    width: 80%;
+    height: 90px;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.feedback-display {
+    width: 80%;
+    margin: auto;
+}
+
+.feedback-display p {
+    background: #d4f1f4;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+footer {
+    background: #2c2c54;
+    color: white;
+    padding: 25px;
 }
