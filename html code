@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Learnova - Study Material Platform</title>
+ <meta charset="UTF-8">
+ <title>Learnova - Study Material Platform</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
         
         body {
-            font-family: 'Poppins', sans-serif;
+         font-family: 'Poppins', sans-serif;
             margin: 0;
             background: linear-gradient(to right, #fdfbfb, #ebedee);
             text-align: center;
