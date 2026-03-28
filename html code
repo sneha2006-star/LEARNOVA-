@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <title>Learnova - Study Material Platform</title>
+    <meta charset="UTF-8">
+    <title>Learnova - Study Material Platform</title>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
         
         body {
-         font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             background: linear-gradient(to right, #fdfbfb, #ebedee);
             text-align: center;
@@ -140,6 +141,7 @@
         }
     </style>
 </head>
+
 <body>
 
 <header>
@@ -159,7 +161,7 @@
 <section id="home">
     <h2>Welcome to Learnova</h2>
     <p>All Study Materials in One Place - Notes, Videos, Quizzes & Resources</p>
-    <button onclick="welcomeMsg()">Get Started</button>
+    <button id="start-btn">Get Started</button>
 </section>
 
 <section id="subjects">
@@ -194,7 +196,7 @@
 
 <section id="quiz">
     <h2>Quick Quiz</h2>
-    <p id="quiz-question">What is i² (iota square)?</p>
+    <p id="quiz-question"></p>
     <div id="quiz-options"></div>
     <p id="result"></p>
     <div class="coming-soon">
@@ -206,7 +208,7 @@
     <h2>Feedback</h2>
     <p>We would love to hear from you!</p>
     <textarea id="feedback-box" placeholder="Write your feedback here..."></textarea><br>
-    <button onclick="submitFeedback()">Submit</button>
+    <button id="feedback-btn">Submit</button>
     <div class="feedback-display" id="feedback-display"></div>
 </section>
 
@@ -221,64 +223,83 @@
 </footer>
 
 <script>
-function welcomeMsg() {
+// Welcome button
+document.getElementById("start-btn").addEventListener("click", () => {
     alert("Welcome to Learnova! Start Learning Smart 📚");
-}
+});
 
-// Quiz logic
-let currentQuiz = 0;
+// Quiz data
 const quizQuestions = [
-    {question: "What is i² (iota square)?", options: ["1","-1","0"], answer: "-1"},
-    {question: "What is the derivative of x²?", options: ["x","2x","x²"], answer: "2x"},
-    {question: "What is H₂O commonly known as?", options: ["Water","Oxygen","Hydrogen"], answer: "Water"}
+    { question: "What is i² (iota square)?", options: ["1", "-1", "0"], answer: "-1" },
+    { question: "What is the derivative of x²?", options: ["x", "2x", "x²"], answer: "2x" },
+    { question: "What is H₂O commonly known as?", options: ["Water", "Oxygen", "Hydrogen"], answer: "Water" }
 ];
 
+let currentQuiz = 0;
+
+// Load quiz
 function loadQuiz() {
-    let q = quizQuestions[currentQuiz];
-    document.getElementById("quiz-question").innerText = q.question;
-    let optionsDiv = document.getElementById("quiz-options");
-    optionsDiv.innerHTML = "";
-    q.options.forEach(opt => {
-        let btn = document.createElement("button");
-        btn.innerText = opt;
-        btn.onclick = () => checkAnswer(opt);
-        optionsDiv.appendChild(btn);
+    const q = quizQuestions[currentQuiz];
+    const questionEl = document.getElementById("quiz-question");
+    const optionsEl = document.getElementById("quiz-options");
+
+    questionEl.textContent = q.question;
+    optionsEl.innerHTML = "";
+
+    q.options.forEach(option => {
+        const btn = document.createElement("button");
+        btn.textContent = option;
+
+        btn.addEventListener("click", () => checkAnswer(option));
+
+        optionsEl.appendChild(btn);
     });
-    document.getElementById("result").innerText = "";
+
+    document.getElementById("result").textContent = "";
 }
 
-function checkAnswer(ans) {
-    let correctAns = quizQuestions[currentQuiz].answer;
-    let result = document.getElementById("result");
-    if(ans === correctAns) {
-        result.innerHTML = "Correct! ✅";
-        result.style.color = "#27ae60";
+// Check answer
+function checkAnswer(selected) {
+    const correct = quizQuestions[currentQuiz].answer;
+    const resultEl = document.getElementById("result");
+
+    if (selected === correct) {
+        resultEl.textContent = "Correct! ✅";
+        resultEl.style.color = "#27ae60";
     } else {
-        result.innerHTML = "Wrong Answer ❌ Try Again!";
-        result.style.color = "#e74c3c";
+        resultEl.textContent = "Wrong Answer ❌ Try Again!";
+        resultEl.style.color = "#e74c3c";
     }
 }
 
-// Feedback logic
-function submitFeedback() {
-    let box = document.getElementById("feedback-box");
-    let display = document.getElementById("feedback-display");
-    if(box.value.trim() !== "") {
-        let p = document.createElement("p");
-        p.innerText = box.value;
+// Feedback button
+document.getElementById("feedback-btn").addEventListener("click", () => {
+    const box = document.getElementById("feedback-box");
+    const display = document.getElementById("feedback-display");
+
+    if (box.value.trim()) {
+        const p = document.createElement("p");
+        p.textContent = box.value;
         display.appendChild(p);
         box.value = "";
         alert("Thank you for your feedback!");
     } else {
         alert("Please write something before submitting.");
     }
-}
+});
 
-// Initialize first quiz
+// Initialize quiz
 loadQuiz();
 </script>
 
 </body>
-</html> 
-    
+</html>
+            
+       
+        
+        
+        
 
+   
+
+   
